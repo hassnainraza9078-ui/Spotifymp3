@@ -1,0 +1,11 @@
+{
+  "name": "sonora-music-finder",
+  "version": "1.4.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090d18">
+  <title>Sonora — Music Finder</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="ambient a1"></div>
+  <div class="ambient a2"></div>
+  <main class="shell">
+    <header>
+      <a class="brand" href="/">
+        <span class="brand-icon">♫</span>
+        <span>SONORA<span class="dot">.</span></span>
+      </a>
+      <span class="top-label">MUSIC DISCOVERY</span>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow"><span class="pulse"></span> FULL SONGS · INSTANT PLAY &amp; DOWNLOAD</div>
+      <h1>Find your next<br><span>favorite sound.</span></h1>
+      <p class="sub">Search any song name, artist, or paste a music link. Listen to the full track right here and save it as MP3.</p>
+
+      <form id="searchForm" class="search">
+        <span class="search-icon">⌕</span>
+        <input id="query" autocomplete="off" placeholder="Search song name, artist, or paste a link..." aria-label="Search music">
+        <button id="searchBtn" type="submit">Search <span>↗</span></button>
+      </form>
+      <div class="hint">Instant Match · Built-in Full Audio Player · High-Quality MP3 Download</div>
+    </section>
+
+    <section id="results" class="results" hidden>
+      <div id="loading" class="loading" hidden><span class="spinner"></span> Finding your song...</div>
+      <div id="error" class="error" hidden></div>
+      <div id="trackContainer"></div>
+      <div id="empty" class="empty" hidden>No matching song found. Try another song or artist name.</div>
+    </section>
+
+    <footer>
+      <span>SONORA<span class="dot">.</span></span>
+      <span>Discover &amp; Listen · Full Track Audio</span>
+    </footer>
+  </main>
+
+  <div id="playerBar" class="player" hidden>
+    <div class="player-info">
+      <div id="playerCover" class="cover mini">♫</div>
+      <div style="min-width:0;flex:1">
+        <b id="playerTitle">Select a song</b>
+        <small id="playerArtist">Ready to play</small>
+      </div>
+    </div>
+    <audio id="audioEl" controls preload="metadata"></audio>
+    <button id="closePlayer" class="icon-btn" title="Close player" aria-label="Close player">×</button>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

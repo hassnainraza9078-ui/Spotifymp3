@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{color-scheme:dark;--bg:#090d18;--panel:#111827;--muted:#8993a8;--text:#f4f6fb;--accent:#a78bfa;--line:rgba(255,255,255,.09)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden;padding-bottom:105px}
+.ambient{position:fixed;width:420px;height:420px;border-radius:50%;filter:blur(110px);opacity:.16;pointer-events:none}
+.a1{background:#7045da;top:-200px;left:-120px}
+.a2{background:#0e9caa;right:-250px;top:35%;opacity:.1}
+.shell{width:min(820px,calc(100% - 40px));margin:auto;position:relative;z-index:1}
+header{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:11px;color:white;text-decoration:none;font:700 18px 'Space Grotesk';letter-spacing:2px}
+.brand-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,#a78bfa,#5b7cfa);font-size:21px}
+.dot{color:#a78bfa}
+.top-label,.hint,footer{color:var(--muted);font-size:10px;letter-spacing:1.7px}
+.hero{text-align:center;padding:70px 0 38px}
+.eyebrow{font-size:10px;letter-spacing:2.2px;font-weight:700;color:#b7a4ff;display:flex;justify-content:center;align-items:center;gap:9px}
+.pulse{width:7px;height:7px;border-radius:50%;background:#8cf0ca;box-shadow:0 0 13px #8cf0ca}
+h1{font:600 clamp(38px,6vw,64px)/1.06 'Space Grotesk';letter-spacing:-2.8px;margin:20px 0 14px}
+h1 span{background:linear-gradient(90deg,#b69bff,#7ddbd3);color:transparent;background-clip:text}
+.sub{color:#a0a9bb;font-size:15px;margin:0 auto 30px;max-width:490px;line-height:1.7}
+
+/* Search Bar */
+.search{display:flex;align-items:center;max-width:650px;margin:auto;padding:7px 8px 7px 19px;border:1px solid rgba(174,151,255,.27);background:rgba(20,27,44,.88);border-radius:16px;box-shadow:0 14px 55px rgba(0,0,0,.22);transition:.2s}
+.search:focus-within{border-color:#a78bfa;box-shadow:0 0 0 4px rgba(167,139,250,.09)}
+.search-icon{font-size:26px;color:#a78bfa;line-height:1;margin-right:12px}
+.search input{flex:1;min-width:0;border:0;outline:0;background:none;color:white;font:15px 'DM Sans'}
+.search input::placeholder{color:#667087}
+.search button{border:0;border-radius:11px;background:linear-gradient(120deg,#9b7cf0,#6d83f7);color:white;padding:13px 20px;font-weight:700;cursor:pointer;white-space:nowrap}
+.search button span{margin-left:8px}
+.hint{margin-top:16px;letter-spacing:.4px;font-size:11px}
+
+/* Single Song Result & Search-Style Download Bar */
+.results{padding:10px 0 55px;max-width:650px;margin:auto}
+.single-card{display:grid;gap:14px}
+.track{display:flex;align-items:center;gap:15px;padding:15px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.03)}
+.cover{width:58px;height:58px;flex:0 0 58px;border-radius:11px;background:linear-gradient(135deg,#352b5c,#1a5861);display:grid;place-items:center;color:#d8cbff;font-size:22px;overflow:hidden}
+.cover img{width:100%;height:100%;object-fit:cover}
+.track-meta{min-width:0;flex:1}
+.track-meta b{display:block;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.track-meta small{display:block;color:var(--muted);font-size:12px;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pill{border:1px solid var(--line);border-radius:11px;padding:11px 16px;color:#d5caff;background:rgba(167,139,250,.12);font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
+.pill.primary{background:#a78bfa;color:#111323;border-color:#a78bfa}
+.pill.primary:hover{background:#b8a2ff}
+
+/* Search-Style Download Box */
+.download-box{display:flex;align-items:center;gap:10px;padding:7px 8px 7px 18px;border:1px solid rgba(140,240,202,.32);background:rgba(20,27,44,.92);border-radius:16px;box-shadow:0 14px 45px rgba(0,0,0,.25)}
+.dl-icon{font-size:20px;color:#8cf0ca;font-weight:700}
+.dl-label{flex:1;min-width:0;font-size:14px;color:#e5e9f5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.quality{background:#121829;border:1px solid var(--line);color:#d9dceb;border-radius:10px;padding:10px 10px;font-size:12px;outline:0;cursor:pointer}
+.dl-btn{border:0;border-radius:11px;background:linear-gradient(120deg,#7ddbd3,#58b89b);color:#091318;padding:13px 18px;font-weight:700;font-size:13px;cursor:pointer;white-space:nowrap}
+.dl-btn:hover{filter:brightness(1.06)}
+.dl-btn:disabled{opacity:.6;cursor:not-allowed}
+.dl-btn span{margin-left:6px}
+
+.loading,.empty{padding:34px;text-align:center;color:var(--muted);font-size:13px}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid #5b5478;border-top-color:#b69bff;border-radius:50%;animation:spin .8s linear infinite;vertical-align:middle;margin-right:8px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.error{color:#ffaaa9;padding:13px;background:rgba(255,90,90,.09);border-radius:12px;font-size:13px;text-align:center}
+
+/* Bottom Audio Player */
+.player{position:fixed;z-index:20;bottom:18px;left:50%;transform:translateX(-50%);width:min(720px,calc(100% - 28px));padding:12px 16px;background:#171e30;border:1px solid rgba(167,139,250,.35);border-radius:16px;box-shadow:0 15px 60px rgba(0,0,0,.7);display:flex;align-items:center;gap:14px}
+.player[hidden]{display:none}
+.player-info{display:flex;align-items:center;gap:10px;min-width:140px;flex:1;overflow:hidden}
+.player-info b,.player-info small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.player-info b{font-size:12px}
+.player-info small{font-size:10px;color:#8cf0ca;margin-top:3px}
+.mini{width:40px;height:40px;flex-basis:40px}
+.player audio{width:270px;height:36px}
+.icon-btn{background:none;border:0;color:#aab2c5;font-size:23px;cursor:pointer;padding:0 4px}
+footer{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:25px 0 35px;font-size:9px;letter-spacing:1px}
+footer span:first-child{font:700 12px 'Space Grotesk';color:#d8d9e5}
+
+@media(max-width:650px){
+  .hero{padding:54px 0 30px}
+  h1{letter-spacing:-1.8px}
+  .track{flex-wrap:wrap}
+  .download-box{flex-wrap:wrap;padding:12px}
+  .dl-label{width:100%}
+  .dl-btn{flex:1}
+  .player{flex-wrap:wrap}
+  .player audio{width:100%}
+}
